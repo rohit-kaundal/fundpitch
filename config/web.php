@@ -58,6 +58,12 @@ $config = [
         
     ],
     'params' => $params,
+    
+    'modules' => [
+        'utility' => [
+                'class' => 'c006\utility\migration\Module',
+            ],
+        ],
 ];
 
 if (YII_ENV_DEV) {
@@ -71,6 +77,11 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
+    
+    /*//$config['bootstrap'][] = 'utility';
+    $config['modules']['utility'] = [
+            'class' => 'c006\utility\migration\Module',
+        ];*/
 }
 
 return $config;
