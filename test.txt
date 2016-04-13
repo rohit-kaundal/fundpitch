@@ -1,6 +1,1 @@
-now this if to check webhook
-via web
-
-now pulling with --no-edit
-
-now it will work awsomely
+now this is the final test of pulling
