@@ -1,1 +1,2 @@
-last
+chownerd www-data
+now checking if deployment works
