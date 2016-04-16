@@ -10,6 +10,8 @@ use Yii;
  * @property integer $id
  * @property string $currenytitle
  * @property string $currencysymbol
+ *
+ * @property Acquisitions[] $acquisitions
  */
 class Currency extends \yii\db\ActiveRecord
 {
@@ -43,5 +45,13 @@ class Currency extends \yii\db\ActiveRecord
             'currenytitle' => 'Currenytitle',
             'currencysymbol' => 'Currencysymbol',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAcquisitions()
+    {
+        return $this->hasMany(Acquisitions::className(), ['currencyid' => 'id']);
     }
 }

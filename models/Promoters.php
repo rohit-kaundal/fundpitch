@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $name
- * @property integer $promotertypeid
+ * @property string $promotertype
  * @property integer $company_id
  * @property string $pic
  */
@@ -29,9 +29,9 @@ class Promoters extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'promotertypeid', 'company_id', 'pic'], 'required'],
-            [['name', 'promotertypeid', 'company_id'], 'integer'],
-            [['pic'], 'string'],
+            [['name', 'promotertype', 'company_id', 'pic'], 'required'],
+            [['name', 'company_id'], 'integer'],
+            [['promotertype', 'pic'], 'string'],
         ];
     }
 
@@ -43,7 +43,7 @@ class Promoters extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'promotertypeid' => 'Promotertypeid',
+            'promotertype' => 'Promotertype',
             'company_id' => 'Company ID',
             'pic' => 'Pic',
         ];

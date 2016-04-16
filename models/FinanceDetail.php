@@ -12,6 +12,8 @@ use Yii;
  * @property integer $currentyearcurrencyid
  * @property integer $estimatedturnover
  * @property integer $estimatedcurrencyid
+ *
+ * @property Company[] $companies
  */
 class FinanceDetail extends \yii\db\ActiveRecord
 {
@@ -46,5 +48,13 @@ class FinanceDetail extends \yii\db\ActiveRecord
             'estimatedturnover' => 'Estimatedturnover',
             'estimatedcurrencyid' => 'Estimatedcurrencyid',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompanies()
+    {
+        return $this->hasMany(Company::className(), ['financialsid' => 'id']);
     }
 }

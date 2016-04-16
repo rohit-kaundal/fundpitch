@@ -11,6 +11,9 @@ use Yii;
  * @property integer $documenttypeid
  * @property string $date
  * @property string $file
+ * @property integer $companyid
+ *
+ * @property DocumentsType $documenttype
  */
 class CompanyDocuments extends \yii\db\ActiveRecord
 {
@@ -28,10 +31,11 @@ class CompanyDocuments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['documenttypeid', 'date', 'file'], 'required'],
-            [['documenttypeid'], 'integer'],
+            [['documenttypeid', 'date', 'file', 'companyid'], 'required'],
+            [['documenttypeid', 'companyid'], 'integer'],
             [['date'], 'safe'],
             [['file'], 'string'],
+            [['documenttypeid'], 'exist', 'skipOnError' => true, 'targetClass' => DocumentsType::className(), 'targetAttribute' => ['documenttypeid' => 'id']],
         ];
     }
 
@@ -45,6 +49,15 @@ class CompanyDocuments extends \yii\db\ActiveRecord
             'documenttypeid' => 'Documenttypeid',
             'date' => 'Date',
             'file' => 'File',
+            'companyid' => 'Companyid',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDocumenttype()
+    {
+        return $this->hasOne(DocumentsType::className(), ['id' => 'documenttypeid']);
     }
 }

@@ -9,6 +9,8 @@ use Yii;
  *
  * @property integer $id
  * @property string $documenttype
+ *
+ * @property CompanyDocuments[] $companyDocuments
  */
 class DocumentsType extends \yii\db\ActiveRecord
 {
@@ -40,5 +42,13 @@ class DocumentsType extends \yii\db\ActiveRecord
             'id' => 'ID',
             'documenttype' => 'Documenttype',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompanyDocuments()
+    {
+        return $this->hasMany(CompanyDocuments::className(), ['documenttypeid' => 'id']);
     }
 }

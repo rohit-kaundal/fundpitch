@@ -11,6 +11,8 @@ use Yii;
  * @property string $rolename
  * @property string $created_at
  * @property integer $created_by
+ *
+ * @property Users[] $users
  */
 class UserRoles extends \yii\db\ActiveRecord
 {
@@ -28,7 +30,7 @@ class UserRoles extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rolename', 'created_at', 'created_by'], 'required'],
+            [['rolename', 'created_by'], 'required'],
             [['created_at'], 'safe'],
             [['created_by'], 'integer'],
             [['rolename'], 'string', 'max' => 100],
@@ -46,5 +48,13 @@ class UserRoles extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'created_by' => 'Created By',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(Users::className(), ['roleid' => 'id']);
     }
 }

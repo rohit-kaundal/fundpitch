@@ -8,16 +8,16 @@ use Yii;
  * This is the model class for table "company".
  *
  * @property integer $id
- * @property integer $name
+ * @property string $name
  * @property string $establishment
- * @property integer $secotrcount
- * @property integer $marketsize
+ * @property string $secotrcount
+ * @property string $marketsize
  * @property string $headquarters
  * @property string $ipostock
  * @property integer $companytypeid
  * @property integer $noofemployees
- * @property integer $targetedmarkets
- * @property integer $scopecapacity
+ * @property string $targetedmarkets
+ * @property string $scopecapacity
  * @property integer $clientscount
  * @property integer $productservicecount
  * @property double $companyvaluation
@@ -29,6 +29,7 @@ use Yii;
  * @property string $logo
  * @property string $presentcreditfacilities
  * @property string $taxabilityofproducts
+ * @property integer $financialsid
  * @property string $fblink
  * @property string $twitterlink
  * @property string $googlepluslink
@@ -36,6 +37,13 @@ use Yii;
  * @property integer $requiremtnid
  * @property string $requirement_meta
  * @property string $requirement_note
+ * @property integer $userid
+ *
+ * @property Acquisitions[] $acquisitions
+ * @property Users $user
+ * @property CompanyTypes $companytype
+ * @property FinanceDetail $financials
+ * @property RequirementType $requiremtn
  */
 class Company extends \yii\db\ActiveRecord
 {
@@ -53,13 +61,18 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'establishment', 'secotrcount', 'marketsize', 'headquarters', 'companytypeid', 'noofemployees', 'targetedmarkets', 'scopecapacity', 'clientscount', 'productservicecount', 'companyvaluation', 'keyassociation', 'patentcount', 'peers', 'companydetail', 'website', 'logo', 'presentcreditfacilities', 'taxabilityofproducts', 'fblink', 'twitterlink', 'googlepluslink', 'linkedinlink', 'requiremtnid', 'requirement_meta', 'requirement_note'], 'required'],
-            [['name', 'secotrcount', 'marketsize', 'companytypeid', 'noofemployees', 'targetedmarkets', 'scopecapacity', 'clientscount', 'productservicecount', 'patentcount', 'requiremtnid'], 'integer'],
+            [['name', 'establishment', 'secotrcount', 'marketsize', 'headquarters', 'companytypeid', 'noofemployees', 'targetedmarkets', 'scopecapacity', 'clientscount', 'productservicecount', 'companyvaluation', 'keyassociation', 'patentcount', 'peers', 'companydetail', 'website', 'logo', 'presentcreditfacilities', 'taxabilityofproducts', 'financialsid', 'fblink', 'twitterlink', 'googlepluslink', 'linkedinlink', 'requiremtnid', 'requirement_meta', 'requirement_note', 'userid'], 'required'],
             [['establishment'], 'safe'],
-            [['ipostock', 'keyassociation', 'peers', 'companydetail', 'website', 'logo', 'presentcreditfacilities', 'taxabilityofproducts', 'requirement_meta', 'requirement_note'], 'string'],
+            [['secotrcount', 'ipostock', 'targetedmarkets', 'scopecapacity', 'keyassociation', 'peers', 'companydetail', 'website', 'logo', 'presentcreditfacilities', 'taxabilityofproducts', 'requirement_meta', 'requirement_note'], 'string'],
+            [['companytypeid', 'noofemployees', 'clientscount', 'productservicecount', 'patentcount', 'financialsid', 'requiremtnid', 'userid'], 'integer'],
             [['companyvaluation'], 'number'],
+            [['name', 'marketsize'], 'string', 'max' => 150],
             [['headquarters'], 'string', 'max' => 100],
             [['fblink', 'twitterlink', 'googlepluslink', 'linkedinlink'], 'string', 'max' => 255],
+            [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['userid' => 'id']],
+            [['companytypeid'], 'exist', 'skipOnError' => true, 'targetClass' => CompanyTypes::className(), 'targetAttribute' => ['companytypeid' => 'id']],
+            [['financialsid'], 'exist', 'skipOnError' => true, 'targetClass' => FinanceDetail::className(), 'targetAttribute' => ['financialsid' => 'id']],
+            [['requiremtnid'], 'exist', 'skipOnError' => true, 'targetClass' => RequirementType::className(), 'targetAttribute' => ['requiremtnid' => 'id']],
         ];
     }
 
@@ -91,6 +104,7 @@ class Company extends \yii\db\ActiveRecord
             'logo' => 'Logo',
             'presentcreditfacilities' => 'Presentcreditfacilities',
             'taxabilityofproducts' => 'Taxabilityofproducts',
+            'financialsid' => 'Financialsid',
             'fblink' => 'Fblink',
             'twitterlink' => 'Twitterlink',
             'googlepluslink' => 'Googlepluslink',
@@ -98,6 +112,47 @@ class Company extends \yii\db\ActiveRecord
             'requiremtnid' => 'Requiremtnid',
             'requirement_meta' => 'Requirement Meta',
             'requirement_note' => 'Requirement Note',
+            'userid' => 'Userid',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAcquisitions()
+    {
+        return $this->hasMany(Acquisitions::className(), ['companyid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(Users::className(), ['id' => 'userid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompanytype()
+    {
+        return $this->hasOne(CompanyTypes::className(), ['id' => 'companytypeid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFinancials()
+    {
+        return $this->hasOne(FinanceDetail::className(), ['id' => 'financialsid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRequiremtn()
+    {
+        return $this->hasOne(RequirementType::className(), ['id' => 'requiremtnid']);
     }
 }

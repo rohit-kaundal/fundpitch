@@ -11,6 +11,8 @@ use Yii;
  * @property string $statusname
  * @property string $created_at
  * @property integer $created_by
+ *
+ * @property Users[] $users
  */
 class UserStatus extends \yii\db\ActiveRecord
 {
@@ -28,7 +30,7 @@ class UserStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['statusname', 'created_at', 'created_by'], 'required'],
+            [['statusname', 'created_by'], 'required'],
             [['created_at'], 'safe'],
             [['created_by'], 'integer'],
             [['statusname'], 'string', 'max' => 100],
@@ -46,5 +48,13 @@ class UserStatus extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'created_by' => 'Created By',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(Users::className(), ['statusid' => 'id']);
     }
 }

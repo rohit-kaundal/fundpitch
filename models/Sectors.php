@@ -28,7 +28,7 @@ class Sectors extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sectorname', 'created_at', 'created_by'], 'required'],
+            [['sectorname', 'created_by'], 'required'],
             [['created_at'], 'safe'],
             [['created_by'], 'integer'],
             [['sectorname'], 'string', 'max' => 100],

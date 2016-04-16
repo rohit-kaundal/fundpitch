@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "promoter_type".
  *
  * @property integer $id
- * @property integer $title
+ * @property string $title
  */
 class PromoterType extends \yii\db\ActiveRecord
 {
@@ -27,7 +27,7 @@ class PromoterType extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['title'], 'integer'],
+            [['title'], 'string', 'max' => 150],
         ];
     }
 

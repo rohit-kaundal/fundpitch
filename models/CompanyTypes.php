@@ -8,9 +8,11 @@ use Yii;
  * This is the model class for table "company_types".
  *
  * @property integer $id
- * @property integer $title
+ * @property string $title
  * @property string $created_at
  * @property integer $created_by
+ *
+ * @property Company[] $companies
  */
 class CompanyTypes extends \yii\db\ActiveRecord
 {
@@ -28,9 +30,10 @@ class CompanyTypes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'created_at', 'created_by'], 'required'],
-            [['title', 'created_by'], 'integer'],
+            [['title', 'created_by'], 'required'],
             [['created_at'], 'safe'],
+            [['created_by'], 'integer'],
+            [['title'], 'string', 'max' => 100],
         ];
     }
 
@@ -45,5 +48,13 @@ class CompanyTypes extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'created_by' => 'Created By',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompanies()
+    {
+        return $this->hasMany(Company::className(), ['companytypeid' => 'id']);
     }
 }

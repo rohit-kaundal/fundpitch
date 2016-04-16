@@ -18,6 +18,10 @@ use Yii;
  * @property string $activationcode
  * @property string $creationdate
  * @property string $logindate
+ *
+ * @property Company[] $companies
+ * @property UserStatus $status
+ * @property UserRoles $role
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -35,7 +39,7 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'email', 'password', 'firstname', 'roleid', 'statusid', 'moblenumber', 'activationcode', 'creationdate', 'logindate'], 'required'],
+            [['username', 'email', 'password', 'firstname', 'roleid', 'statusid', 'moblenumber', 'activationcode', 'creationdate'], 'required'],
             [['roleid', 'statusid'], 'integer'],
             [['creationdate', 'logindate'], 'safe'],
             [['username'], 'string', 'max' => 20],
@@ -43,6 +47,8 @@ class Users extends \yii\db\ActiveRecord
             [['password', 'activationcode'], 'string', 'max' => 255],
             [['firstname'], 'string', 'max' => 30],
             [['moblenumber'], 'string', 'max' => 15],
+            [['statusid'], 'exist', 'skipOnError' => true, 'targetClass' => UserStatus::className(), 'targetAttribute' => ['statusid' => 'id']],
+            [['roleid'], 'exist', 'skipOnError' => true, 'targetClass' => UserRoles::className(), 'targetAttribute' => ['roleid' => 'id']],
         ];
     }
 
@@ -64,5 +70,29 @@ class Users extends \yii\db\ActiveRecord
             'creationdate' => 'Creationdate',
             'logindate' => 'Logindate',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCompanies()
+    {
+        return $this->hasMany(Company::className(), ['userid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStatus()
+    {
+        return $this->hasOne(UserStatus::className(), ['id' => 'statusid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRole()
+    {
+        return $this->hasOne(UserRoles::className(), ['id' => 'roleid']);
     }
 }
