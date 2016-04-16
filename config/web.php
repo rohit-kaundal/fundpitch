@@ -50,6 +50,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                // URL rewriting rules
+                'admin/<controller>/<action>' => '<controller>/<action>'
             ],
             
         
