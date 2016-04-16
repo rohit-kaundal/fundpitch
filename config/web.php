@@ -51,7 +51,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 // URL rewriting rules
-                'admin/<controller>/<action>' => '<controller>/<action>'
+                'admin/<controller>/<action>' => '<controller>/<action>',
+                'admin/<controller>' => '<controller>/',
             ],
             
         
@@ -78,6 +79,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['*'],
     ];
     
     /*//$config['bootstrap'][] = 'utility';
