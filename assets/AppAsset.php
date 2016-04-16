@@ -44,6 +44,10 @@ class AppAsset extends AssetBundle
         'js/select2/select2-bootstrap.css',
         'js/select2/select2.css',
         
+        'js/jvectormap/jquery-jvectormap-1.2.2.css',
+        'js/rickshaw/rickshaw.min.css',
+        'css/font-icons/font-awesome/css/font-awesome.min.css',
+        
         ];
         
     public $js = [
@@ -54,11 +58,24 @@ class AppAsset extends AssetBundle
         'js/joinable.js',
         'js/resizeable.js',
         'js/neon-api.js',
+        
+        'js/jvectormap/jquery-jvectormap-1.2.2.min.js',
+        'js/jvectormap/jquery-jvectormap-europe-merc-en.js',
+        'js/jquery.sparkline.min.js',
+        'js/rickshaw/vendor/d3.v3.js',
+        'js/rickshaw/rickshaw.min.js',
+        'js/raphael-min.js',
+        'js/morris.min.js',
+        'js/toastr.js',
+        
+        
+        
         'js/neon-chat.js',
         'js/datatables/datatables.js',
         'js/select2/select2.min.js',
         'js/neon-custom.js',
         'js/neon-demo.js',
+        
         ];
         
     public $depends = [
