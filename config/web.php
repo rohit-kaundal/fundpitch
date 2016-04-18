@@ -21,19 +21,22 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
+        
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'viewPath' => '@app/mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.google.com',
+                'username' => 'consolebrosgames@gmail.com',
+                'password' => 'Gaurav!992',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -65,8 +68,17 @@ $config = [
     'modules' => [
         'utility' => [
                 'class' => 'c006\utility\migration\Module',
-            ],
         ],
+            'user' => [
+                //'identityClass' => 'app\models\User',
+                //'enableAutoLogin' => true,
+                'class' => 'dektrium\user\Module',
+                'enableUnconfirmedLogin' => true,
+                'confirmWithin' => 21600,
+                'cost' => 12,
+                'admins' => ['admin']
+            ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
