@@ -31,11 +31,11 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'mail.google.com',
-                'username' => 'consolebrosgames@gmail.com',
-                'password' => 'Gaurav!992',
-                'port' => '587',
-                'encryption' => 'tls',
+                'host' => 'smtp.gmail.com',
+                'username' => 'consolebrosgames',
+                'password' => 'kxckjaeimexrpspc',
+                'port' => '465',
+                'encryption' => 'ssl',
             ],
         ],
         'log' => [

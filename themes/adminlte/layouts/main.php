@@ -42,7 +42,7 @@ AppAsset::register($this);
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="<?= Yii::$app->request->baseUrl ?>">
+					<a href="<?= Yii::$app->request->baseUrl ?>/">
 						Private Project
 					</a>
 				</div>
@@ -69,7 +69,7 @@ AppAsset::register($this);
 				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 				<li class="active">
-					<a href="<?= Yii::$app->request->baseUrl ?>">
+					<a href="<?= Yii::$app->request->baseUrl ?>/">
 						<i class="entypo-gauge"></i>
 						<span class="title">Dashboard</span>
 					</a>

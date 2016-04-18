@@ -61,7 +61,7 @@ AppAsset::register($this);
 				
 					<section class="site-logo">
 					
-						<a href="<?= Yii::$app->request->baseUrl?>">
+						<a href="<?= Yii::$app->request->baseUrl?>/">
 							Private Project
 						</a>
 						
@@ -71,7 +71,7 @@ AppAsset::register($this);
 					
 							<ul class="main-menu hidden-xs" id="main-menu">
 								<li class="active">
-									<a href="<?= Yii::$app->request->baseUrl?>">
+									<a href="<?= Yii::$app->request->baseUrl?>/">
 										<span>Home</span>
 									</a>
 								</li>
