@@ -8293,7 +8293,7 @@ img.full-width {
     left: 40%;
     right: 16px;
   }
-  .page-container .tile-stats .icon {
+  .page-container .tile-stats icon-main {
     bottom: 35px;
   }
 }
@@ -9801,21 +9801,21 @@ table {
 .tile-stats:hover {
   background: #252a32;
 }
-.tile-stats .icon {
+.tile-stats icon-main {
   color: rgba(0, 0, 0, 0.1);
   position: absolute;
   right: 5px;
   bottom: 5px;
   z-index: 1;
 }
-.tile-stats .icon i {
+.tile-stats icon-main i {
   font-size: 100px;
   line-height: 0;
   margin: 0;
   padding: 0;
   vertical-align: bottom;
 }
-.tile-stats .icon i:before {
+.tile-stats icon-main i:before {
   margin: 0;
   padding: 0;
   line-height: 0;
@@ -9847,7 +9847,7 @@ table {
 .tile-stats.tile-red:hover {
   background: #f4543c;
 }
-.tile-stats.tile-red .icon {
+.tile-stats.tile-red icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-red .num,
@@ -9861,7 +9861,7 @@ table {
 .tile-stats.tile-green:hover {
   background: #008d4c;
 }
-.tile-stats.tile-green .icon {
+.tile-stats.tile-green icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-green .num,
@@ -9875,7 +9875,7 @@ table {
 .tile-stats.tile-blue:hover {
   background: #00639e;
 }
-.tile-stats.tile-blue .icon {
+.tile-stats.tile-blue icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-blue .num,
@@ -9889,7 +9889,7 @@ table {
 .tile-stats.tile-aqua:hover {
   background: #00acd6;
 }
-.tile-stats.tile-aqua .icon {
+.tile-stats.tile-aqua icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-aqua .num,
@@ -9903,7 +9903,7 @@ table {
 .tile-stats.tile-cyan:hover {
   background: #009987;
 }
-.tile-stats.tile-cyan .icon {
+.tile-stats.tile-cyan icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-cyan .num,
@@ -9917,7 +9917,7 @@ table {
 .tile-stats.tile-purple:hover {
   background: #b167c4;
 }
-.tile-stats.tile-purple .icon {
+.tile-stats.tile-purple icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-purple .num,
@@ -9931,7 +9931,7 @@ table {
 .tile-stats.tile-pink:hover {
   background: #ea2474;
 }
-.tile-stats.tile-pink .icon {
+.tile-stats.tile-pink icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-pink .num,
@@ -9945,7 +9945,7 @@ table {
 .tile-stats.tile-orange:hover {
   background: #f89d00;
 }
-.tile-stats.tile-orange .icon {
+.tile-stats.tile-orange icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-orange .num,
@@ -9959,7 +9959,7 @@ table {
 .tile-stats.tile-brown:hover {
   background: #584418;
 }
-.tile-stats.tile-brown .icon {
+.tile-stats.tile-brown icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-brown .num,
@@ -9973,7 +9973,7 @@ table {
 .tile-stats.tile-plum:hover {
   background: #5c1717;
 }
-.tile-stats.tile-plum .icon {
+.tile-stats.tile-plum icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-plum .num,
@@ -9987,7 +9987,7 @@ table {
 .tile-stats.tile-gray:hover {
   background: #e8e8e8;
 }
-.tile-stats.tile-gray .icon {
+.tile-stats.tile-gray icon-main {
   color: rgba(0, 0, 0, 0.1);
 }
 .tile-stats.tile-gray .num,
@@ -10002,7 +10002,7 @@ table {
 .tile-stats.tile-white:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white .icon {
+.tile-stats.tile-white icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white .num,
@@ -10020,7 +10020,7 @@ table {
 .tile-stats.tile-white-red:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-red .icon {
+.tile-stats.tile-white-red icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-red .num,
@@ -10038,7 +10038,7 @@ table {
 .tile-stats.tile-white-green:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-green .icon {
+.tile-stats.tile-white-green icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-green .num,
@@ -10056,7 +10056,7 @@ table {
 .tile-stats.tile-white-blue:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-blue .icon {
+.tile-stats.tile-white-blue icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-blue .num,
@@ -10074,7 +10074,7 @@ table {
 .tile-stats.tile-white-aqua:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-aqua .icon {
+.tile-stats.tile-white-aqua icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-aqua .num,
@@ -10092,7 +10092,7 @@ table {
 .tile-stats.tile-white-cyan:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-cyan .icon {
+.tile-stats.tile-white-cyan icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-cyan .num,
@@ -10110,7 +10110,7 @@ table {
 .tile-stats.tile-white-purple:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-purple .icon {
+.tile-stats.tile-white-purple icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-purple .num,
@@ -10128,7 +10128,7 @@ table {
 .tile-stats.tile-white-pink:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-pink .icon {
+.tile-stats.tile-white-pink icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-pink .num,
@@ -10146,7 +10146,7 @@ table {
 .tile-stats.tile-white-orange:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-orange .icon {
+.tile-stats.tile-white-orange icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-orange .num,
@@ -10164,7 +10164,7 @@ table {
 .tile-stats.tile-white-brown:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-brown .icon {
+.tile-stats.tile-white-brown icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-brown .num,
@@ -10182,7 +10182,7 @@ table {
 .tile-stats.tile-white-plum:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-plum .icon {
+.tile-stats.tile-white-plum icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-plum .num,
@@ -10200,7 +10200,7 @@ table {
 .tile-stats.tile-white-gray:hover {
   background: #f2f2f2;
 }
-.tile-stats.tile-white-gray .icon {
+.tile-stats.tile-white-gray icon-main {
   color: #f2f2f2;
 }
 .tile-stats.tile-white-gray .num,

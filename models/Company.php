@@ -40,10 +40,11 @@ use Yii;
  * @property integer $userid
  *
  * @property Acquisitions[] $acquisitions
- * @property Users $user
  * @property CompanyTypes $companytype
  * @property FinanceDetail $financials
  * @property RequirementType $requiremtn
+ * @property Users $user
+ * @property Project[] $projects
  */
 class Company extends \yii\db\ActiveRecord
 {
@@ -69,10 +70,10 @@ class Company extends \yii\db\ActiveRecord
             [['name', 'marketsize'], 'string', 'max' => 150],
             [['headquarters'], 'string', 'max' => 100],
             [['fblink', 'twitterlink', 'googlepluslink', 'linkedinlink'], 'string', 'max' => 255],
-            [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['userid' => 'id']],
             [['companytypeid'], 'exist', 'skipOnError' => true, 'targetClass' => CompanyTypes::className(), 'targetAttribute' => ['companytypeid' => 'id']],
             [['financialsid'], 'exist', 'skipOnError' => true, 'targetClass' => FinanceDetail::className(), 'targetAttribute' => ['financialsid' => 'id']],
             [['requiremtnid'], 'exist', 'skipOnError' => true, 'targetClass' => RequirementType::className(), 'targetAttribute' => ['requiremtnid' => 'id']],
+            [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['userid' => 'id']],
         ];
     }
 
@@ -127,14 +128,6 @@ class Company extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
-    {
-        return $this->hasOne(Users::className(), ['id' => 'userid']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getCompanytype()
     {
         return $this->hasOne(CompanyTypes::className(), ['id' => 'companytypeid']);
@@ -154,5 +147,21 @@ class Company extends \yii\db\ActiveRecord
     public function getRequiremtn()
     {
         return $this->hasOne(RequirementType::className(), ['id' => 'requiremtnid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(Users::className(), ['id' => 'userid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjects()
+    {
+        return $this->hasMany(Project::className(), ['company_id' => 'id']);
     }
 }

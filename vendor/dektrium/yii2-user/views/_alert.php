@@ -12,7 +12,7 @@
 /**
  * @var dektrium\user\Module $module
  */
- $this->context->layout = "@app/themes/adminlte/layouts/front-end";
+ 
 ?>
 
 <?php if ($module->enableFlashMessages): ?>

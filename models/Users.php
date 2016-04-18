@@ -18,10 +18,12 @@ use Yii;
  * @property string $activationcode
  * @property string $creationdate
  * @property string $logindate
+ * @property integer $account_id
  *
  * @property Company[] $companies
- * @property UserStatus $status
+ * @property Project[] $projects
  * @property UserRoles $role
+ * @property UserStatus $status
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -39,16 +41,16 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'email', 'password', 'firstname', 'roleid', 'statusid', 'moblenumber', 'activationcode', 'creationdate'], 'required'],
-            [['roleid', 'statusid'], 'integer'],
+            [['username', 'email', 'password', 'firstname', 'roleid', 'statusid', 'moblenumber', 'activationcode', 'creationdate', 'account_id'], 'required'],
+            [['roleid', 'statusid', 'account_id'], 'integer'],
             [['creationdate', 'logindate'], 'safe'],
             [['username'], 'string', 'max' => 20],
             [['email'], 'string', 'max' => 100],
             [['password', 'activationcode'], 'string', 'max' => 255],
             [['firstname'], 'string', 'max' => 30],
             [['moblenumber'], 'string', 'max' => 15],
-            [['statusid'], 'exist', 'skipOnError' => true, 'targetClass' => UserStatus::className(), 'targetAttribute' => ['statusid' => 'id']],
             [['roleid'], 'exist', 'skipOnError' => true, 'targetClass' => UserRoles::className(), 'targetAttribute' => ['roleid' => 'id']],
+            [['statusid'], 'exist', 'skipOnError' => true, 'targetClass' => UserStatus::className(), 'targetAttribute' => ['statusid' => 'id']],
         ];
     }
 
@@ -69,6 +71,7 @@ class Users extends \yii\db\ActiveRecord
             'activationcode' => 'Activationcode',
             'creationdate' => 'Creationdate',
             'logindate' => 'Logindate',
+            'account_id' => 'Account ID',
         ];
     }
 
@@ -83,9 +86,9 @@ class Users extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getStatus()
+    public function getProjects()
     {
-        return $this->hasOne(UserStatus::className(), ['id' => 'statusid']);
+        return $this->hasMany(Project::className(), ['posted_by_id' => 'id']);
     }
 
     /**
@@ -94,5 +97,13 @@ class Users extends \yii\db\ActiveRecord
     public function getRole()
     {
         return $this->hasOne(UserRoles::className(), ['id' => 'roleid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStatus()
+    {
+        return $this->hasOne(UserStatus::className(), ['id' => 'statusid']);
     }
 }

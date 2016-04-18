@@ -77,6 +77,14 @@ class AppAsset extends AssetBundle
         'js/neon-demo.js',
         'js/neon-login.js',
         'js/jquery.validate.min.js',
+        'js/jquery.bootstrap.wizard.min.js',
+        'js/jquery.inputmask.bundle.js',
+        'js/selectboxit/jquery.selectBoxIt.min.js',
+        'js/bootstrap-datepicker.js',
+        'js/bootstrap-switch.min.js',
+        'js/jquery.multi-select.js',
+        'js/neon-chat.js',
+        'js/wysihtml5/bootstrap-wysihtml5.js'
         
         
         

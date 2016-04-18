@@ -38,6 +38,7 @@ $config = [
                 'encryption' => 'ssl',
             ],
         ],
+        
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -47,6 +48,7 @@ $config = [
                 ],
             ],
         ],
+        
         'db' => require(__DIR__ . '/db.php'),
         
         'urlManager' => [
@@ -54,6 +56,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 // URL rewriting rules
+                '/' => '/public-portal',
+                '/<controller>/<action>' => '<controller>/<action>',
                 'admin/<controller>/<action>' => '<controller>/<action>',
                 'admin/<controller>' => '<controller>/',
             ],
