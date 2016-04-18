@@ -10,38 +10,120 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'options' => ['class' => 'form-horizontal'],
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-        <?= $form->field($model, 'password')->passwordInput() ?>
+	
+	
+	<div class="login-header login-caret">
+		
+		<div class="login-content">
+			
+			<a href="index.html" class="logo">
+				<img src="assets/images/logo@2x.png" width="120" alt="" />
+			</a>
+			
+			<p class="description">Dear user, log in to access the admin area!</p>
+			
+			<!-- progress bar indicator -->
+			<div class="login-progressbar-indicator">
+				<h3>43%</h3>
+				<span>logging in...</span>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="login-progressbar">
+		<div></div>
+	</div>
+	
+	<div class="login-form">
+		
+		<div class="login-content">
+			
+			<div class="form-login-error">
+				<h3>Invalid Email Id</h3>
+				<p>Please enter a valid Email ID.</p>
+			</div>
 
-        <?= $form->field($model, 'rememberMe')->checkbox([
-            'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ]) ?>
+			<div class="form-login-error2">
+				<p>Email Id doesnot exist</p>
+			</div>
 
-        <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-            </div>
-        </div>
-
-    <?php ActiveForm::end(); ?>
-
-    <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
-    </div>
-</div>
+			<div class="form-login-error3">
+				<p>The password that you've entered is incorrect. Forgotten password.? </p>
+			</div>
+			
+			<form method="post" role="form" id="form_login">
+				
+				<div class="form-group">
+					
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="entypo-user"></i>
+						</div>
+						
+						<input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
+					</div>
+					
+				</div>
+				
+				<div class="form-group">
+					
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="entypo-key"></i>
+						</div>
+						
+						<input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
+					</div>
+				
+				</div>
+				
+				<div class="form-group">
+					<a href="showcase-new.html"><button type="submit" class="btn btn-primary btn-block btn-login">
+						<i class="entypo-login"></i>
+						Login In
+					</button></a>
+				</div>
+				
+				<!-- 
+				
+				You can also use other social network buttons
+				<div class="form-group">
+				
+					<button type="button" class="btn btn-default btn-lg btn-block btn-icon icon-left twitter-button">
+						Login with Twitter
+						<i class="entypo-twitter"></i>
+					</button>
+					
+				</div>
+				
+				<div class="form-group">
+				
+					<button type="button" class="btn btn-default btn-lg btn-block btn-icon icon-left google-button">
+						Login with Google+
+						<i class="entypo-gplus"></i>
+					</button>
+					
+				</div> -->
+				
+			</form>
+			
+			
+			<div class="login-bottom-links">
+				
+				<a href="extra-forgot-password.html" class="link">Forgot your password?</a>
+				
+				<br />
+				
+				<a href="#">ToS</a>  - <a href="#">Privacy Policy</a>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	

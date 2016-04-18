@@ -36,6 +36,7 @@ class AppAsset extends AssetBundle
         'js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css',
         'css/font-icons/entypo/css/entypo.css',
         'css/bootstrap.css',
+        'css/neon.css',
         'css/neon-core.css',
         'css/neon-theme.css',
         'css/neon-forms.css',
@@ -47,6 +48,8 @@ class AppAsset extends AssetBundle
         'js/jvectormap/jquery-jvectormap-1.2.2.css',
         'js/rickshaw/rickshaw.min.css',
         'css/font-icons/font-awesome/css/font-awesome.min.css',
+        'css/home.css',
+        'css/home-extra.css'
         
         ];
         
@@ -67,14 +70,15 @@ class AppAsset extends AssetBundle
         'js/raphael-min.js',
         'js/morris.min.js',
         'js/toastr.js',
-        
-        
-        
         'js/neon-chat.js',
         'js/datatables/datatables.js',
         'js/select2/select2.min.js',
         'js/neon-custom.js',
         'js/neon-demo.js',
+        'js/neon-login.js',
+        'js/jquery.validate.min.js',
+        
+        
         
         ];
         

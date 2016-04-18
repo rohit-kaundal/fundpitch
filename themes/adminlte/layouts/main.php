@@ -75,7 +75,7 @@ AppAsset::register($this);
 					</a>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/user">
+					<a href="<?= Yii::$app->request->baseUrl ?>/admin/users">
 						<i class="fa fa-users"></i>
 						<span class="title">Users</span>
 					</a>
@@ -395,7 +395,7 @@ AppAsset::register($this);
 					<li class="sep"></li>
 		
 					<li>
-						<a href="extra-login.html">
+						<a href="<?= Yii::$app->request->baseUrl ?>/admin/site/logout">
 							Log Out <i class="entypo-logout right"></i>
 						</a>
 					</li>

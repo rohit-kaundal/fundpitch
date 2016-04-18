@@ -16,10 +16,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'index'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                       // 'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -28,7 +28,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    //'logout' => ['post'],
                 ],
             ],
         ];
@@ -54,6 +54,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
+        $this->layout ="front-end";
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -62,6 +63,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+        
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -76,6 +78,7 @@ class SiteController extends Controller
 
     public function actionContact()
     {
+        $this->layout = "front-end";
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -89,6 +92,7 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
+        $this->layout = "front-end";
         return $this->render('about');
     }
 }
