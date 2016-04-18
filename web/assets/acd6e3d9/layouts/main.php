@@ -8,9 +8,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use Yii;
-AppAsset::register($this);
 
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ AppAsset::register($this);
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="<?= Yii::$app->request->baseUrl ?>">
+					<a href="index.html">
 						Private Project
 					</a>
 				</div>
@@ -69,50 +68,50 @@ AppAsset::register($this);
 				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 				<li class="active">
-					<a href="<?= Yii::$app->request->baseUrl ?>">
+					<a href="dashboard.html">
 						<i class="entypo-gauge"></i>
 						<span class="title">Dashboard</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/user">
+					<a href="users.html">
 						<i class="fa fa-users"></i>
 						<span class="title">Users</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/project">
+					<a href="projects.html">
 						<i class="fa fa-list"></i>
 						<span class="title">Projects</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/project/new">
+					<a href="form.html">
 						<i class="fa fa-pencil"></i>
 						<span class="title">Submit a project</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/message">
+					<a href="message-box-admin.html">
 						<i class="entypo-mail"></i>
 						<span class="title">Message-Box</span>
 						<span class="badge badge-secondary">8</span>
 					</a>
 				</li>
 				<li class="has-sub">
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/ui-elements">
+					<a href="ui-panels.html">
 						<i class="entypo-newspaper"></i>
 						<span class="title">UI Elements</span>
 					</a>
 					<ul>
 						<li>
-							<a href="<?= Yii::$app->request->baseUrl ?>/admin/ui-elements/settings">
+							<a href="add-new.html">
 								<i class="entypo-inbox"></i>
 								<span class="title">Add New</span>
 							</a>
 						</li>
 						<li>
-							<a href="<?= Yii::$app->request->baseUrl ?>/admin/ui-elements/changelogo">
+							<a href="change-logo.html">
 								<i class="entypo-pencil"></i>
 								<span class="title">Change logo</span>
 							</a>
@@ -120,7 +119,7 @@ AppAsset::register($this);
 					</ul>
 				</li>
 				<li>
-					<a href="<?= Yii::$app->request->baseUrl ?>/admin/user/settings">
+					<a href="admin-acount-settings.html">
 						<i class="fa fa-gear"></i>
 						<span class="title">Account Settings</span>
 					</a>
